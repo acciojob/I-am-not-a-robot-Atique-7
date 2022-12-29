@@ -16,6 +16,7 @@ let n = Math.floor(Math.random() * 5) + 1
 let img = document.createElement("img")
 img.setAttribute("src", `images/${n}.jpeg`)
 img.setAttribute("data-ns-img", n)
+
 img.height = 100
 img.width = 100
 img.onclick = function (e) {
@@ -48,8 +49,8 @@ function readCaptcha(e) {
     reset.onclick = resetCaptcha
   }
   if (click1 != 0 && click2 != 0 && !mainDiv.contains(verify)) {
-    // let verify = document.createElement('button');
-    // verify.innerHTML = 'Verify';
+    // let verify = document.createElement("button")
+    // verify.innerHTML = "Verify"
     mainDiv.append(verify)
     verify.onclick = checkCaptcha
   }
@@ -59,6 +60,7 @@ function readCaptcha(e) {
 //
 function checkCaptcha() {
   if (click1 == click2) {
+    location.reload()
     console.log("verified")
   } else {
     console.log("not verified")
@@ -66,7 +68,7 @@ function checkCaptcha() {
 }
 
 function resetCaptcha() {
-  // location.reload();
+  location.reload()
   click1 = 0
   click2 = 0
   flag = false
